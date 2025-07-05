@@ -1,19 +1,21 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Wafer Pass/Fail Predictor")
+st.title("✅ Wafer Pass/Fail Prediction App")
+st.markdown("This is a test to make sure the app displays something.")
 
-st.title("Wafer Pass/Fail Prediction App")
+# Add a dummy test button
+if st.button("Say Hello"):
+    st.success("Hello from Streamlit!")
 
-# Load dataset
-try:
-    df = pd.read_csv("wafer.csv")
-    st.write("### Sample of wafer dataset:")
-    st.dataframe(df.head())
-except FileNotFoundError:
-    st.error("⚠️ wafer.csv file not found. Please check if it's uploaded in the repo.")
+# Upload file section
+file = st.file_uploader("Upload CSV file", type=["csv"])
 
-# Add more logic or model loading below
+if file is not None:
+    df = pd.read_csv(file)
+    st.subheader("Uploaded Data Preview:")
+    st.write(df.head())
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
