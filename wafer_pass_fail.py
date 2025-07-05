@@ -4,15 +4,11 @@ import pandas as pd
 st.title("✅ Wafer Pass/Fail Prediction App")
 st.markdown("This is a test to make sure the app displays something.")
 
-# Add a dummy test button
-if st.button("Say Hello"):
-    st.success("Hello from Streamlit!")
-
 # Upload file section
-file = st.file_uploader("Upload CSV file", type=["csv"])
+#file = st.file_uploader("Upload CSV file", type=["csv"])
 
 if file is not None:
-    df = pd.read_csv(file)
+    df = pd.read_csv("wafer.csv")
     st.subheader("Uploaded Data Preview:")
     st.write(df.head())
 
