@@ -7,7 +7,7 @@ st.markdown("This is a test to make sure the app displays something.")
 # Upload file section
 #file = st.file_uploader("Upload CSV file", type=["csv"])
 
-if file is not None:
+try:
     df = pd.read_csv("wafer.csv")
     st.subheader("Uploaded Data Preview:")
     st.write(df.head())
