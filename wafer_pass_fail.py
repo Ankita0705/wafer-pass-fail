@@ -11,6 +11,10 @@ try:
     df = pd.read_csv("wafer.csv")
     st.subheader("Uploaded Data Preview:")
     st.write(df.head())
+except FileNotFoundError:
+    st.error("⚠️ wafer.csv file not found. Please check if it's uploaded in the repo.")
+
+# Add more logic or model loading below
 
 import pandas as pd
 import matplotlib.pyplot as plt
